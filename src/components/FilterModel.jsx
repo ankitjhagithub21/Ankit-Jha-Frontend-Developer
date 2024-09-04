@@ -1,9 +1,9 @@
-import {useState} from "react"
+import { useState } from "react"
 import { useDispatch } from 'react-redux';
 import { setArea } from "../redux/appSlice"
 import { MdClose } from "react-icons/md";
 
-const FilterModel = ({setIsModelOpen,areas}) => {
+const FilterModel = ({ setIsModelOpen, areas }) => {
     const [selectedArea, setSelectedArea] = useState('');
     const dispatch = useDispatch();
 
@@ -22,7 +22,7 @@ const FilterModel = ({setIsModelOpen,areas}) => {
                 <div className='flex items-center justify-between w-full mb-5'>
                     <h1 className='font-bold text-xl'>Filter By Area</h1>
                     <button className='rounded-full shadow-xl p-2' onClick={() => setIsModelOpen(false)}>
-                        <MdClose/>
+                        <MdClose />
                     </button>
                 </div>
                 <div className='grid md:grid-cols-3 grid-cols-2 gap-2'>
