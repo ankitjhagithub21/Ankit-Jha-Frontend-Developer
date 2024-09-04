@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import FoodItem from './FoodItem';
 import { setFoodItems, setIsLoading } from '../redux/appSlice';
 import FoodModel from './FoodModel';
-import Loader from './Loader';
+
 
 const FoodItems = () => {
   const { area, foodItems, selectedFoodId, sortOrder ,isLoading} = useSelector(state => state.app);
