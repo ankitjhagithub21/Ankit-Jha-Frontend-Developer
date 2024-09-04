@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react';
 import FilterModel from './FilterModel';
+import { useSelector } from 'react-redux';
 
 const FilterSection = () => {
+  const {area} = useSelector(state=>state.app)
   const [areas, setAreas] = useState([]);
   const [isModelOpen, setIsModelOpen] = useState(false);
 
   useEffect(() => {
     const fetchFoodAreas = async () => {
       try {
-        const response = await fetch(`https://www.themealdb.com/api/json/v1/1/list.php?a=list`);
+        const response = await fetch(`https://www.themealdb.com/api/json/v1/1/list.php?a=${area}`);
         const data = await response.json();
         setAreas(data.meals);
       } catch (error) {
@@ -16,7 +18,7 @@ const FilterSection = () => {
       }
     };
     fetchFoodAreas();
-  }, []);
+  }, [area]);
 
   return (
     <section>
