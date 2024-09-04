@@ -4,7 +4,7 @@ This repository contains the solution to the frontend development assessment. Th
 
 ## Demo
 
-[Click here to watch the demo video](https://ankit-jha-frontend-developer.vercel.app/)
+[Click here to watch the demo video](https://drive.google.com/file/d/1LekdtHRFUDI9QufuZKDLnzHQm78FPF7s/view?usp=sharing)
 
 ## Features
 - **Filter Food Items**: Filter the food items by different areas using the MealDB API.
