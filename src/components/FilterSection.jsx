@@ -22,8 +22,6 @@ const FilterSection = () => {
     <section>
       <div className='flex items-center gap-3 p-5 max-w-5xl mx-auto'>
         <button className='border rounded-full px-3 py-1' onClick={() => setIsModelOpen(true)}>Filter
-       
-
         </button>
         <button>Sort By</button>
       </div>

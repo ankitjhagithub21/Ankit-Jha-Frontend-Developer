@@ -1,11 +1,12 @@
 import {useState} from "react"
-import { X } from 'lucide-react';
 import { useDispatch } from 'react-redux';
 import { setArea } from "../redux/appSlice"
+import { MdClose } from "react-icons/md";
 
 const FilterModel = ({setIsModelOpen,areas}) => {
     const [selectedArea, setSelectedArea] = useState('');
     const dispatch = useDispatch();
+
     const applyFilter = () => {
         dispatch(setArea(selectedArea));
         setIsModelOpen(false);
@@ -15,16 +16,13 @@ const FilterModel = ({setIsModelOpen,areas}) => {
         setSelectedArea(event.target.value);
     };
 
-
-   
-
     return (
         <div className={`fixed w-full overlay h-full p-5 flex items-center z-50 top-0 left-0 justify-center`}>
             <div className=' w-fit flex flex-col items-start bg-white flex-wrap shadow-lg rounded-lg p-5'>
                 <div className='flex items-center justify-between w-full mb-5'>
                     <h1 className='font-bold text-xl'>Filter By Area</h1>
                     <button className='rounded-full shadow-xl p-2' onClick={() => setIsModelOpen(false)}>
-                        <X size={16} />
+                        <MdClose/>
                     </button>
                 </div>
                 <div className='grid md:grid-cols-3 grid-cols-2 gap-2'>

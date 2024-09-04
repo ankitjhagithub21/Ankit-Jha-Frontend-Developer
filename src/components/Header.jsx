@@ -1,4 +1,4 @@
-import { Search } from "lucide-react"
+import { GoSearch } from "react-icons/go"
 
 
 const Header = () => {
@@ -8,7 +8,7 @@ const Header = () => {
             <img src="/logo.png" alt="swiggy logo" width={120}/>
             <div className="flex items-center bg-gray-200 px-4 py-3  rounded-lg lg:w-1/3 md:w-1/2 w-full">
                 <input type="text" className="w-full bg-transparent outline-none" placeholder="Search for restaurant and food"/>
-                <Search size={20} color="gray"/>
+                <GoSearch size={20} />
             </div>
         </div>
     </header>
