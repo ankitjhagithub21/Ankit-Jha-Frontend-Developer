@@ -26,7 +26,7 @@ const FoodModel = () => {
     }, [selectedFoodId])
 
     if (loading) {
-        return <Loader/>
+        return <Loader />
     }
 
 
@@ -54,11 +54,11 @@ const FoodModel = () => {
 
     return (
         <section className='fixed top-0 left-0 w-full flex items-center justify-center overlay overflow-scroll rounded-lg p-5'>
-               <button className='absolute top-2 right-2 bg-white shadow rounded-full p-2' onClick={() => dispatch(setSelectedFoodId(null))}>
-                <MdClose size={20}/>
-               </button>
+            <button className='absolute top-2 right-2 bg-white shadow rounded-full p-2' onClick={() => dispatch(setSelectedFoodId(null))}>
+                <MdClose size={20} />
+            </button>
             <div className='lg:w-1/2 w-full p-5 h-screen overflow-scroll rounded-lg shadow-lg bg-white'>
-             
+
                 <h2 className='text-2xl font-bold mb-3'>{strMeal}</h2>
                 <img src={strMealThumb} alt={strMeal} className='rounded-lg w-full h-80 object-cover  mb-4' />
 

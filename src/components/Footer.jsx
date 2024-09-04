@@ -49,11 +49,11 @@ const Footer = () => {
                     <span className='font-bold text-2xl'>Swiggy</span>
                 </div>
                 <div className='text-gray-300 mt-2'>
-                <p>© 2024 Bundl</p>
-                <p>Technologies Pvt. Ltd</p>
+                    <p>© 2024 Bundl</p>
+                    <p>Technologies Pvt. Ltd</p>
                 </div>
             </div>
-         
+
         </footer>
     )
 }

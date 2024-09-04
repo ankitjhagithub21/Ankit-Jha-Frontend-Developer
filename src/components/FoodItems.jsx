@@ -6,7 +6,7 @@ import FoodModel from './FoodModel';
 
 
 const FoodItems = () => {
-  const { area, foodItems, selectedFoodId, sortOrder ,isLoading} = useSelector(state => state.app);
+  const { area, foodItems, selectedFoodId, sortOrder, isLoading } = useSelector(state => state.app);
   const dispatch = useDispatch();
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -44,28 +44,28 @@ const FoodItems = () => {
       {isLoading ? (
         <div className='h-[80vh] w-full flex items-center justify-center'>
           <span className='loader'></span>
-        </div> 
+        </div>
       ) : (
-      <div className='grid max-w-5xl mx-auto lg:gap-10 p-5 gap-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2'>
-       
-        { currentItems.map((item) => (
-          <FoodItem key={item.idMeal} item={item} />
-        ))}
-      </div>
+        <div className='grid max-w-5xl mx-auto lg:gap-10 p-5 gap-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2'>
+
+          {currentItems.map((item) => (
+            <FoodItem key={item.idMeal} item={item} />
+          ))}
+        </div>
       )}
 
       {/* Pagination Controls */}
       <div className='flex justify-center mt-5'>
-        <button 
-          className={`px-4 py-2 mx-1 text-white rounded-lg ${currentPage === 1 ? 'bg-gray-400' : 'bg-green-600'}`} 
+        <button
+          className={`px-4 py-2 mx-1 text-white rounded-lg ${currentPage === 1 ? 'bg-gray-400' : 'bg-green-600'}`}
           onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
           disabled={currentPage === 1}
         >
           Previous
         </button>
         <span className='px-4 py-2  mx-1'>{`Page ${currentPage} of ${totalPages}`}</span>
-        <button 
-          className={`px-4 py-2 mx-1 text-white rounded-lg ${currentPage === totalPages ? 'bg-gray-400' : 'bg-green-600'}`} 
+        <button
+          className={`px-4 py-2 mx-1 text-white rounded-lg ${currentPage === totalPages ? 'bg-gray-400' : 'bg-green-600'}`}
           onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
           disabled={currentPage === totalPages}
         >

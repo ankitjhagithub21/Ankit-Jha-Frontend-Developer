@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { setSelectedFoodId } from '../redux/appSlice';
 
 const FoodItem = ({ item }) => {
-  const { idMeal, strMeal, strMealThumb } = item
+  const { strMeal, strMealThumb } = item
   const randomRating = (Math.random() * 4 + 1).toFixed(1);
   const dispatch = useDispatch()
   const handleClick = () => {
