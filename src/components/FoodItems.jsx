@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import FoodItem from './FoodItem';
-import { setFoodItems } from '../redux/appSlice';
+import { setFoodItems, setIsLoading } from '../redux/appSlice';
 import FoodModel from './FoodModel';
+import Loader from './Loader';
 
 const FoodItems = () => {
-  const { area, foodItems, selectedFoodId, sortOrder } = useSelector(state => state.app);
+  const { area, foodItems, selectedFoodId, sortOrder ,isLoading} = useSelector(state => state.app);
   const dispatch = useDispatch();
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -13,10 +14,12 @@ const FoodItems = () => {
 
   useEffect(() => {
     const getFoodItems = async () => {
+      dispatch(setIsLoading(true))
       const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${area}`);
       const data = await response.json();
       dispatch(setFoodItems(data.meals));
       setCurrentPage(1); // Reset to first page on area change
+      dispatch(setIsLoading(false))
     };
     getFoodItems();
   }, [area]);
@@ -38,11 +41,18 @@ const FoodItems = () => {
 
   return (
     <section className='mb-20'>
+      {isLoading ? (
+        <div className='h-[80vh] w-full flex items-center justify-center'>
+          <span className='loader'></span>
+        </div> 
+      ) : (
       <div className='grid max-w-5xl mx-auto lg:gap-10 p-5 gap-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2'>
-        {currentItems.map((item) => (
+       
+        { currentItems.map((item) => (
           <FoodItem key={item.idMeal} item={item} />
         ))}
       </div>
+      )}
 
       {/* Pagination Controls */}
       <div className='flex justify-center mt-5'>

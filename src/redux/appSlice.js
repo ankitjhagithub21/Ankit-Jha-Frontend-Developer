@@ -6,7 +6,8 @@ export const appSlice = createSlice({
     area:"indian",
     foodItems:[],
     selectedFoodId:null,
-    sortOrder: 'asc'
+    sortOrder: 'asc',
+    isLoading:false,
   },
   reducers: {
    
@@ -22,9 +23,12 @@ export const appSlice = createSlice({
     setSortOrder: (state, action) => {
       state.sortOrder = action.payload;
     },
+    setIsLoading:(state,action)=>{
+      state.isLoading = action.payload
+    }
   },
 })
 
-export const { setArea,setFoodItems,setSelectedFoodId,setSortOrder } = appSlice.actions
+export const { setArea,setFoodItems,setSelectedFoodId,setSortOrder,setIsLoading } = appSlice.actions
 
 export default appSlice.reducer
