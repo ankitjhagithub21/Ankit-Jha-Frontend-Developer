@@ -2,9 +2,9 @@ import React from 'react'
 import "./App.css"
 const App = () => {
   return (
-    <div>
-      My app
-    </div>
+    <h1 className="text-3xl font-bold underline">
+      Hello world!
+    </h1>
   )
 }
 
