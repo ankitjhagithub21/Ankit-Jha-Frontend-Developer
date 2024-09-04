@@ -34,7 +34,7 @@ const FilterSection = () => {
   return (
     <section>
 
-      <div className='max-w-5xl mx-auto py-5'>
+      <div className='max-w-5xl mx-auto p-5'>
         <h1 className='mb-2 text-2xl font-bold'>Top {area} Food</h1>
         <div className='flex gap-5'>
           <button

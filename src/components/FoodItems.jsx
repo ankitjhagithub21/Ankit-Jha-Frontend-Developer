@@ -38,7 +38,7 @@ const FoodItems = () => {
 
   return (
     <section className='mb-20'>
-      <div className='grid max-w-5xl mx-auto lg:gap-10 gap-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2'>
+      <div className='grid max-w-5xl mx-auto lg:gap-10 p-5 gap-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2'>
         {currentItems.map((item) => (
           <FoodItem key={item.idMeal} item={item} />
         ))}
