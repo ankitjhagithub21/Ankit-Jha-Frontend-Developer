@@ -53,7 +53,7 @@ const FoodModel = () => {
     }
 
     return (
-        <section className='fixed top-0 left-0 w-full flex items-center justify-center overlay overflow-scroll rounded-lg p-5 '>
+        <section className='fixed top-0 left-0 w-full flex items-center justify-center overlay overflow-scroll rounded-lg p-5'>
                <button className='absolute top-2 right-2 bg-white shadow rounded-full p-2' onClick={() => dispatch(setSelectedFoodId(null))}>
                 <MdClose size={20}/>
                </button>
