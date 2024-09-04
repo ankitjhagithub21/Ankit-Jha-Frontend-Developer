@@ -12,7 +12,7 @@ const FilterSection = () => {
   useEffect(() => {
     const fetchFoodAreas = async () => {
       try {
-        const response = await fetch('https://www.themealdb.com/api/json/v1/1/list.php?a=list');
+        const response = await fetch(`https://www.themealdb.com/api/json/v1/1/list.php?a=${area}`);
         const data = await response.json();
         setAreas(data.meals);
       } catch (error) {
@@ -20,7 +20,7 @@ const FilterSection = () => {
       }
     };
     fetchFoodAreas();
-  }, []);
+  }, [area]);
 
   const handleAreaSelect = (selectedArea) => {
     dispatch(setArea(selectedArea));
@@ -33,32 +33,37 @@ const FilterSection = () => {
 
   return (
     <section>
-      <div className='flex items-center gap-3 p-5 max-w-5xl mx-auto'>
-      <button
-          className='flex items-center border rounded-full px-3 py-1'
-          onClick={() => setIsModelOpen(true)}
-        >
-          Filter
-        
-          
-        </button>
 
-        {/* Sort By dropdown */}
-        <select
-          value={sortOrder}
-          onChange={handleSortChange}
-          className='border rounded-full px-3 py-1'
-        >
-          <option value="asc">Sort A-Z</option>
-          <option value="desc">Sort Z-A</option>
-        </select>
+      <div className='max-w-5xl mx-auto py-5'>
+        <h1 className='mb-2 text-2xl font-bold'>Top {area} Food</h1>
+        <div className='flex gap-5'>
+          <button
+            className='flex items-center border rounded-full px-3 py-1'
+            onClick={() => setIsModelOpen(true)}
+          >
+            Filter
+
+
+          </button>
+
+          {/* Sort By dropdown */}
+          <select
+            value={sortOrder}
+            onChange={handleSortChange}
+            className='border rounded-full px-3 py-1'
+          >
+            <option value="asc">Sort A-Z</option>
+            <option value="desc">Sort Z-A</option>
+          </select>
+        </div>
+
       </div>
 
       {isModelOpen && (
         <FilterModel
           setIsModelOpen={setIsModelOpen}
           areas={areas}
-          onAreaSelect={handleAreaSelect}
+          
         />
       )}
     </section>
